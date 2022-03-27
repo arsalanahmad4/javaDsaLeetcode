@@ -2,8 +2,10 @@ package com.arsalan.leetcode;
 
 public class CountHillsAndValleysInArray {
     public static void main(String[] args) {
-        int[] arr = {6,6,5,5,4,1};
-        System.out.println(countHillValley(arr));
+        int[] arr = {2,4,1,1,6,5};
+        int[] arr1 = {6,6,5,5,4,1};
+        int[] arr2 = {5,7,7,1,1,7};
+        System.out.println(countHillAndValley(arr2));
     }
 
     public static int countHillValley(int[] nums) {
@@ -39,9 +41,12 @@ public class CountHillsAndValleysInArray {
         int r=0;
         int left = nums[0];
         for(int i =1;i<nums.length-1;i++){
-
+            if(nums[i]>left && nums[i]>nums[i+1] || nums[i]<left && nums[i]<nums[i+1]){
+                r+=1;
+                left = nums[i];
+            }
         }
-        return 0;
+        return r;
     }
 
 }
